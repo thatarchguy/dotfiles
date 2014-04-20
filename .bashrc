@@ -48,9 +48,6 @@ bakwht='\e[47m'   # White
 txtrst='\e[0m'    # Text Reset
 
 
-gitc() {
-	    git commit -m"`curl -s http://quote.escapethebot.net`"
-}
 
 
 
