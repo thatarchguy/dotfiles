@@ -48,6 +48,12 @@ bakwht='\e[47m'   # White
 txtrst='\e[0m'    # Text Reset
 
 
+gitc() {
+	    git commit -m"`curl -s http://quote.escapethebot.net`"
+}
+
+
+
 # nuke@arch (~) $:
 export PS1="\[$txtred\]\u@\[$bldblu\]\H \[$txtgrn\](\w) \$: \[$txtrst\]"
 
