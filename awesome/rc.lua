@@ -84,7 +84,7 @@ end
  -- {{{ Tags
  -- Define a tag table which will hold all screen tags.
  tags = {
-   names  = { "www", "irc", "music", "ssh", "vm", "code", "misc", "mum"},
+   names  = { "fuck", "your", "shit", "and", "kill", "all", "the", "things"},
    layout = { layouts[1], layouts[2], layouts[1], layouts[5], layouts[6],
               layouts[12], layouts[9], layouts[3]
  }}
