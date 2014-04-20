@@ -51,9 +51,12 @@ txtrst='\e[0m'    # Text Reset
     [ -e "$DIR_COLORS" ] || DIR_COLORS=""
 	    eval "`dircolors -b $DIR_COLORS`"
 
+if git --version &>/dev/null; then
+	        # PS1 Line to show current Git Branch in the Prompt
+			export PS1="\[$txtred\]\u@\[$bldblu\]\H \[$txtgrn\](\w) (git) \$: \[$txtrst\]"
+	else
+			# nuke@arch (~) $:
+			export PS1="\[$txtred\]\u@\[$bldblu\]\H \[$txtgrn\](\w) \$: \[$txtrst\]"
 
-
-# nuke@arch (~) $:
-export PS1="\[$txtred\]\u@\[$bldblu\]\H \[$txtgrn\](\w) \$: \[$txtrst\]"
-
+	fi		
 #[ -n "$XTERM_VERSION" ] && transset-df -a >/dev/null
