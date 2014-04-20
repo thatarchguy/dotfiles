@@ -14,6 +14,9 @@ alias eqz='alsamixer -D equal'
 
 
 
+gcm() {
+    git commit -m"`curl -s http://quote.escapethebot.net`"
+}
 
 
 
