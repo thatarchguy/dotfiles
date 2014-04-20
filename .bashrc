@@ -47,16 +47,22 @@ bakcyn='\e[46m'   # Cyan
 bakwht='\e[47m'   # White
 txtrst='\e[0m'    # Text Reset
 
+function parse_git_dirty {
+[[ $(git status 2> /dev/null | tail -n1) != "nothing to commit (working directory clean)" ]] && echo "*"
+}
+function parse_git_branch {
+git branch --no-color 2> /dev/null | sed -e '/^[^*]/d' -e "s/* \(.*\)/[\1$(parse_git_dirty)]/"
+}
+
+
 [ -e "$HOME/.dircolors" ] && DIR_COLORS="$HOME/.dircolors"
     [ -e "$DIR_COLORS" ] || DIR_COLORS=""
 	    eval "`dircolors -b $DIR_COLORS`"
 
-if git --version &>/dev/null; then
-	        # PS1 Line to show current Git Branch in the Prompt
-			export PS1="\[$txtred\]\u@\[$bldblu\]\H \[$txtgrn\](\w) (git) \$: \[$txtrst\]"
-	else
-			# nuke@arch (~) $:
-			export PS1="\[$txtred\]\u@\[$bldblu\]\H \[$txtgrn\](\w) \$: \[$txtrst\]"
 
-	fi		
+
+
+# nuke@arch (~) $:
+export PS1="\[$txtred\]\u@\[$bldblu\]\H \[$txtgrn\](\w)\$(parse_git_branch) \$: \[$txtrst\]"
+
 #[ -n "$XTERM_VERSION" ] && transset-df -a >/dev/null
