@@ -18,7 +18,9 @@ gcm() {
     git commit -m"`curl -s http://quote.escapethebot.net`"
 }
 
-
+function cs () {
+    cd "$@" && ls
+}
 
 
 # Stopwatch

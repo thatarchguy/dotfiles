@@ -2,6 +2,8 @@
 # ~/.bashrc
 #
 
+export TERM=rxvt-unicode
+
 # If not running interactively, don't do anything
 [[ $- != *i* ]] && return
 
