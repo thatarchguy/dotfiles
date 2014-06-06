@@ -42,9 +42,12 @@ end
 beautiful.init("/home/nuke/.config/awesome/theme.lua")
 
 -- This is used later as the default terminal and editor to run.
-terminal = "xterm"
+terminal = "urxvt"
 firefox = "firefox"
+thunar = "thunar"
 vifm = "vifm"
+suspend = "systemctl suspend"
+
 editor = os.getenv("EDITOR") or "nano"
 editor_cmd = terminal .. " -e " .. editor
 
@@ -84,9 +87,9 @@ end
  -- {{{ Tags
  -- Define a tag table which will hold all screen tags.
  tags = {
-   names  = { "fuck", "your", "shit", "and", "kill", "all", "the", "things"},
+   names  = { "1", "2", "3", "4", "5", "6"},
    layout = { layouts[1], layouts[2], layouts[1], layouts[5], layouts[6],
-              layouts[12], layouts[9], layouts[3]
+              layouts[12]
  }}
  for s = 1, screen.count() do
      -- Each screen has its own tag table.
@@ -108,7 +111,8 @@ myawesomemenu = {
 mymainmenu = awful.menu({ items = { { "awesome", myawesomemenu, beautiful.awesome_icon },
                                     { "open terminal", terminal },
                                     { "firefox", firefox },
-				    { "files", vifm }
+				    				{ "files", thunar },
+									{ "Suspend", suspend }
                                   }
                         })
 
