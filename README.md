@@ -1,12 +1,17 @@
 dotfiles
 ========
+####My dotfiles
 
-my dotfiles
+To install them using installer scripts:   
 
-$git clone whereeveryougotthis
-$ mv ~/dotfiles ~/.dotfiles
-$ bash install.sh
+```bash
+	$ git clone whereeveryougotthis
+	$ mv ~/dotfiles ~/.dotfiles
+	$ bash install.sh
+	
+    OR makefile
 
-OR use the makefile
-
-make install
+	$ git clone whereeveryougotthis
+	$ mv ~/dotfiles ~/.dotfiles
+	$ make install
+```
