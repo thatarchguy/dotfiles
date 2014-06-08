@@ -6,4 +6,8 @@ set nohlsearch            " Don't continue to highlight searched phrases.
 set incsearch             " But do highlight as you type your search.
 set ignorecase            " Make searches case-insensitive.
 set ruler                 " Always show info along bottom.
+set history=1000
 set tabstop=4             " tab spacing
+
+set matchpairs+=<:>
+
