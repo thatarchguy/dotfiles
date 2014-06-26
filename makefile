@@ -1,6 +1,6 @@
 install: install-bash install-vim -install-tmux \
 		 install-colors install-terminal install-awesome \
-		 install-asound
+		 install-asound install-ncmpcpp
 
 
 install-bash:
@@ -32,3 +32,7 @@ install-awesome:
 install-asound:
 	ln -s `pwd`/.asroundrcTV ~/.asoundrcTV
 	ln -s `pwd`/.asroundrcHEAD ~/.asoundrcHEAD
+
+install-ncmpcpp:
+	rm -rf ~/.ncmpcpp
+	ln -s `pwd`/.ncmpcpp ~/.ncmpcpp
