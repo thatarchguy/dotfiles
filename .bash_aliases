@@ -1,4 +1,5 @@
 
+alias fucking='sudo !!'
 alias cpz='rsync -aP'
 alias ls='ls --color=auto'
 alias ll='ls -la'
