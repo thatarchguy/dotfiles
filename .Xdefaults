@@ -38,8 +38,9 @@ xterm*faceName: Liberation Mono:size=8:antialias=true
 
 
 URxvt*geometry:         112x22  
+URxvt*font:				xft:Liberation Mono:size=8
 !URxvt*font:            xft:Inconsolata:size=8
-URxvt*font:			xft:Andale Mono:size=8:antialias=true
+!URxvt*font:			xft:Andale Mono:size=8:antialias=true
 URxvt*scrollBar:        false
 URxvt*scrollBar_right:        true
 URxvt*scrollColor:        #000000

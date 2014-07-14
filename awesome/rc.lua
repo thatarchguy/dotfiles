@@ -282,7 +282,7 @@ root.buttons(awful.util.table.join(
 globalkeys = awful.util.table.join(
     
 	-- user made --
-    awful.key({ modkey, "Control"	  }, "l", function () awful.util.spawn("slock") end),
+    awful.key({ modkey, "Control"	  }, "l", function () awful.util.spawn("systemctl suspend") end),
     awful.key({ modkey,		  }, "b", function () awful.util.spawn("xterm ncmpcpp") end),
     awful.key({ modkey, "Shift"   }, "p", function () awful.util.spawn("mpc play") end),
     awful.key({ modkey, "Control" }, "p", function () awful.util.spawn("mpc pause") end),
