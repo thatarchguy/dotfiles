@@ -126,7 +126,6 @@ menubar.utils.terminal = terminal -- Set the terminal for applications that requ
 -- {{{ Wibox
 -- Create a textclock widget
 mytextclock = awful.widget.textclock()
-batterywidget = wibox.widget.textbox()
 
 home = os.getenv("HOME")
 confdir = home .. "/.config/awesome"
@@ -169,12 +168,21 @@ end, 1)
 
 
 
-
-
-
-
-
-
+vpnwidget = wibox.widget.textbox()    
+vpnwidget:set_text(" VPN: N/A ")    
+vpnwidgettimer = timer({ timeout = 5 })    
+vpnwidgettimer:connect_signal("timeout",    
+  function()    
+    status = io.popen("ls /var/run | grep 'openvpn'", "r")
+    if status:read() == nil then
+        vpnwidget:set_markup(" <span color='#FF0000'>VPN: OFF</span> ")    
+    else
+        vpnwidget:set_markup(" <span color='#00FF00'>VPN: ON</span> ")
+    end
+    status:close()    
+  end    
+)    
+vpnwidgettimer:start()
 
 
 
@@ -258,6 +266,7 @@ for s = 1, screen.count() do
     if s == 1 then right_layout:add(wibox.widget.systray()) end
     
     right_layout:add(mpdwidget)
+    right_layout:add(vpnwidget)
     right_layout:add(mytextclock)
     right_layout:add(mylayoutbox[s])
     -- Now bring it all together (with the tasklist in the middle)
@@ -283,6 +292,7 @@ globalkeys = awful.util.table.join(
     
 	-- user made --
     awful.key({ modkey, "Control"	  }, "l", function () awful.util.spawn("systemctl suspend") end),
+    awful.key({ modkey, "Mod1"	  }, "l", function () awful.util.spawn("slock") end),
     awful.key({ modkey,		  }, "b", function () awful.util.spawn("xterm ncmpcpp") end),
     awful.key({ modkey, "Shift"   }, "p", function () awful.util.spawn("mpc play") end),
     awful.key({ modkey, "Control" }, "p", function () awful.util.spawn("mpc pause") end),
