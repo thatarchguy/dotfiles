@@ -8,6 +8,7 @@ set ignorecase            " Make searches case-insensitive.
 set ruler                 " Always show info along bottom.
 set history=1000
 set tabstop=4             " tab spacing
+set shiftwidth=4
 set expandtab
 set matchpairs+=<:>
 

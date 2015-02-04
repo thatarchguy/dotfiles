@@ -157,7 +157,7 @@ function(widget, args)
         }).id
     end
     return gray .. args["{Artist}"] .. coldef .. white .. " " .. args["{Title}"] .. " " .. coldef
-  elseif args["{state}"] == "Pause" then
+   elseif args["{state}"] == "Pause" then
     -- 'in pausa' means 'paused'  
     return gray .. "music " .. coldef .. white .. "is paused " .. coldef
 	else
@@ -165,6 +165,8 @@ function(widget, args)
 		return ''
 	end
 end, 1)
+
+
 
 
 
