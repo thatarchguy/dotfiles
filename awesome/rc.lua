@@ -295,7 +295,8 @@ globalkeys = awful.util.table.join(
 	-- user made --
     awful.key({ modkey, "Control"	  }, "l", function () awful.util.spawn("systemctl suspend") end),
     awful.key({ modkey, "Mod1"	  }, "l", function () awful.util.spawn("slock") end),
-    awful.key({ modkey,		  }, "b", function () awful.util.spawn("xterm ncmpcpp") end),
+    awful.key({ modkey,		  }, "b", function () awful.util.spawn("urxvt -e ncmpcpp") end),
+    awful.key({ modkey,		  }, "e", function () awful.util.spawn("urxvt -e mutt") end),
     awful.key({ modkey, "Shift"   }, "p", function () awful.util.spawn("mpc play") end),
     awful.key({ modkey, "Control" }, "p", function () awful.util.spawn("mpc pause") end),
 

@@ -13,8 +13,6 @@ alias pacin='sudo pacman -S'
 
 alias eqz='alsamixer -D equal'
 
-alias cap='cd /home/nuke/dev/code/misc/GRR-Manager/'
-
 bind Space:magic-space
 
 
@@ -24,6 +22,10 @@ gcm() {
 
 function cs () {
     cd "$@" && ls
+}
+
+function scratch {
+vim ~/tmp/$(openssl rand -base64 10 | tr -dc 'a-zA-Z').txt
 }
 
 

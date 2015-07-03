@@ -68,3 +68,5 @@ git branch --no-color 2> /dev/null | sed -e '/^[^*]/d' -e "s/* \(.*\)/[\1$(parse
 export PS1="\[$txtred\]\u@\[$bldblu\]\H \[$txtgrn\](\w)\$(parse_git_branch) \$: \[$txtrst\]"
 
 #[ -n "$XTERM_VERSION" ] && transset-df -a >/dev/null
+
+PATH=$PATH:$HOME/.gem/ruby/2.2.0/bin/
