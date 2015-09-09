@@ -44,6 +44,7 @@ URxvt*font:				xft:Liberation Mono:size=8
 URxvt*scrollBar:        false
 URxvt*scrollBar_right:        true
 URxvt*scrollColor:        #000000
+URxvt*letterSpace:      -1
 
 urxvt*transparent: false
 urxvt*shading: 30
