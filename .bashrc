@@ -15,13 +15,16 @@ if [ -f ~/.bash_aliases ]; then
 	    source ~/.bash_aliases
 	fi
 
-
+if [ -f ~/.git-completion.bash ]; then
+  . ~/.git-completion.bash
+fi
 
 #case "$TERM" in
 #    xterm-color) color_prompt=yes;;
 #esac
 
-
+HISTSIZE=2000
+HISTFILESIZE=3000
 
 txtblk='\e[0;30m' # Black - Regular
 txtred='\e[0;31m' # Red
@@ -65,8 +68,10 @@ git branch --no-color 2> /dev/null | sed -e '/^[^*]/d' -e "s/* \(.*\)/[\1$(parse
 
 
 # nuke@arch (~) $:
-export PS1="\[$txtred\]\u@\[$bldblu\]\H \[$txtgrn\](\w)\$(parse_git_branch) \$: \[$txtrst\]"
+#export PS1="\[$txtred\]\u@\[$bldblu\]\H \[$txtgrn\](\w)\$(parse_git_branch) \$: \[$txtrst\]"
+source ~/.bash_prompt
 
 #[ -n "$XTERM_VERSION" ] && transset-df -a >/dev/null
 
 PATH=$PATH:$HOME/.gem/ruby/2.2.0/bin/
+EDITOR=vim

@@ -2,7 +2,7 @@
 alias fucking='sudo !!'
 alias cpz='rsync -aP'
 alias ls='ls --color=auto'
-alias ll='ls -la'
+alias ll='ls -la | lolcat'
 
 alias mntdisas="sshfs -o idmap=user,follow_symlinks disasterbate: /srv/disas"
 alias umntdisas="fusermount -u /srv/disas"
