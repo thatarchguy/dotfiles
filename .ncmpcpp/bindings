@@ -280,17 +280,17 @@ def_key "L"
 #def_key "3"
 #  reset_search_engine
 #
-#def_key "4"
-#  show_media_library
-#
-#def_key "4"
-#  toggle_media_library_columns_mode
-#
-#def_key "5"
-#  show_playlist_editor
-#
-#def_key "6"
-#  show_tag_editor
+def_key "4"
+  show_tag_editor
+
+def_key "5"
+  show_media_library
+
+def_key "5"
+  toggle_media_library_columns_mode
+
+def_key "6"
+  show_playlist_editor
 #
 #def_key "7"
 #  show_outputs

@@ -1,11 +1,13 @@
 install: install-bash install-vim -install-tmux \
 		 install-colors install-terminal install-awesome \
-		 install-asound install-ncmpcpp
+		 install-asound install-ncmpcpp install-git
 
 
 install-bash:
-	rm -f ~/.bashrc ~/.bash_aliases
+	rm -f ~/.bashrc ~/.bash_aliases ~/.bash_prompt 
 	ln -s `pwd`/.bashrc ~/.bashrc
+	ln -s `pwd`/.git-completion.bash ~/.git-completion.bash
+	ln -s `pwd`/.bash_prompt ~/.bash_prompt
 	ln -s `pwd`/.bash_aliases ~/.bash_aliases
 
 install-vim:
@@ -36,3 +38,7 @@ install-asound:
 install-ncmpcpp:
 	rm -rf ~/.ncmpcpp
 	ln -s `pwd`/.ncmpcpp ~/.ncmpcpp
+
+install-git:
+	rm -rf ~/.gitconfig
+	ln -s `pwd`/.gitconfig ~/.gitconfig

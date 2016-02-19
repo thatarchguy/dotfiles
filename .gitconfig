@@ -1,0 +1,22 @@
+[user]
+	email = kevin@stealsyour.pw
+	name = Kevin
+	signingkey = 36B316F3
+[alias]
+	tree = log --all --oneline --decorate --graph
+	cs = commit -s
+	csm = commit -s -m
+	s = status -s
+	co = checkout
+    cob = checkout -b
+    bl = branch -l
+[core]
+	editor = vim
+	whitespace = cr-at-eol
+[http]
+	sslVerify = false
+[push]
+	default = simple
+[pager]
+	diff = diff-so-fancy | less --tabs=1,5 -RFX
+	show = diff-so-fancy | less --tabs=1,5 -RFX
