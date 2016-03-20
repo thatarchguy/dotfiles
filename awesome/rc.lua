@@ -186,17 +186,6 @@ vpnwidgettimer:connect_signal("timeout",
 )    
 vpnwidgettimer:start()
 
-batterywidget = wibox.widget.textbox()    
-batterywidget:set_text(" | Battery | ")    
-batterywidgettimer = timer({ timeout = 5 })    
-batterywidgettimer:connect_signal("timeout",    
-  function()    
-    fh = assert(io.popen("acpi | cut -d, -f 2,3 -", "r"))    
-    batterywidget:set_text(" |" .. fh:read("*l") .. " | ")    
-    fh:close()    
-  end    
-)    
-batterywidgettimer:start()
 
 
 -- Create a wibox for each screen and add it
@@ -279,7 +268,6 @@ for s = 1, screen.count() do
     
     right_layout:add(mpdwidget)
     right_layout:add(vpnwidget)
-    right_layout:add(batterywidget)
     right_layout:add(mytextclock)
     right_layout:add(mylayoutbox[s])
     -- Now bring it all together (with the tasklist in the middle)
@@ -305,7 +293,7 @@ globalkeys = awful.util.table.join(
     
 	-- user made --
     awful.key({ modkey, "Control"	  }, "l", function () awful.util.spawn("systemctl suspend") end),
-    awful.key({ modkey, "Mod1"	  }, "l", function () awful.util.spawn("slock") end),
+    awful.key({ modkey, "Mod1"	  }, "l", function () awful.util.spawn("i3lock-wrapper -l") end),
     awful.key({ modkey,		  }, "b", function () awful.util.spawn("urxvt -e ncmpcpp") end),
     awful.key({ modkey,		  }, "e", function () awful.util.spawn("urxvt -e mutt") end),
     awful.key({ modkey, "Shift"   }, "p", function () awful.util.spawn("mpc play") end),
@@ -341,7 +329,8 @@ globalkeys = awful.util.table.join(
             end
         end),
 
-	awful.key({ }, "Print",  function () awful.util.spawn_with_shell("scrot -e 'mv $f ~/Desktop/ 2>/dev/null && xfe ~/Desktop/ & sleep 1 && sxiv ~/Desktop/$f'") end),    
+	awful.key({ }, "Print",  function () awful.util.spawn_with_shell("scrot -e 'mv $f ~/Desktop/ 2>/dev/null && sleep 1 && sxiv ~/Desktop/$f'") end),    
+    awful.key({ modkey,           }, "Print", function () awful.util.spawn_with_shell("sleep 0.5 && scrot -q 100 -s -e 'mv $f ~/Desktop/'") end),
 
 
 

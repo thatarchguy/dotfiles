@@ -3,6 +3,7 @@
 #
 
 export TERM=xterm-256color
+export BROWSER="firefox"
 
 # If not running interactively, don't do anything
 [[ $- != *i* ]] && return
