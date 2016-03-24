@@ -28,6 +28,9 @@ function scratch {
 vim ~/tmp/$(openssl rand -base64 10 | tr -dc 'a-zA-Z').txt
 }
 
+function weather() {
+curl -s wttr.in |sed -n 1,6p
+}
 
 # Stopwatch
 alias timer='echo "Timer started. Stop with Ctrl-D." && date && time cat && date'
