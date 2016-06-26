@@ -3,7 +3,7 @@
 #
 
 export TERM=xterm-256color
-export BROWSER="firefox"
+export BROWSER="chromium"
 
 # If not running interactively, don't do anything
 [[ $- != *i* ]] && return
@@ -24,7 +24,7 @@ fi
 #    xterm-color) color_prompt=yes;;
 #esac
 
-HISTSIZE=2000
+HISTSIZE=20000
 HISTFILESIZE=3000
 
 txtblk='\e[0;30m' # Black - Regular
@@ -76,3 +76,6 @@ source ~/.bash_prompt
 
 PATH=$PATH:$HOME/.gem/ruby/2.2.0/bin/
 EDITOR=vim
+
+# added by travis gem
+[ -f /home/nuke/.travis/travis.sh ] && source /home/nuke/.travis/travis.sh
