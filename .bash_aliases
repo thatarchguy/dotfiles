@@ -28,7 +28,7 @@ function scratch {
 vim ~/tmp/$(openssl rand -base64 10 | tr -dc 'a-zA-Z').txt
 }
 
-function weather() {
+function weather () {
 curl -s wttr.in |sed -n 1,6p
 }
 
