@@ -88,8 +88,8 @@ end
  -- Define a tag table which will hold all screen tags.
  tags = {
    names  = { "1", "2", "3", "4", "5", "6"},
-   layout = { layouts[1], layouts[2], layouts[1], layouts[5], layouts[6],
-              layouts[12]
+   layout = { layouts[1], layouts[2], layouts[1], layouts[2], layouts[2],
+              layouts[2]
  }}
  for s = 1, screen.count() do
      -- Each screen has its own tag table.
@@ -166,20 +166,42 @@ function(widget, args)
 	end
 end, 1)
 
+batterywidget = wibox.widget.textbox()    
+batterywidget:set_text(" | Battery | ")    
+batterywidgettimer = timer({ timeout = 5 })    
+batterywidgettimer:connect_signal("timeout",    
+  function()    
+    fh = assert(io.popen("acpi | cut -d, -f 2,3 -", "r"))    
+    batterywidget:set_text(" |" .. fh:read("*l") .. " | ")    
+    fh:close()    
+  end    
+)    
+batterywidgettimer:start()
 
 
+spotify_widget = wibox.widget.textbox()
+function updateSpotifyWidget(widget)
+  local current = awful.util.pread('sp current-oneline')
+  widget:set_text(" | " .. current)
+end
+
+spotify_timer = timer ({timeout = 5})
+spotify_timer:connect_signal ("timeout", function() updateSpotifyWidget(spotify_widget) end) 
+spotify_timer:start()
+
+spotify_timer:emit_signal("timeout")
 
 
 vpnwidget = wibox.widget.textbox()    
-vpnwidget:set_text(" VPN: N/A ")    
+vpnwidget:set_text(" | VPN: N/A ")    
 vpnwidgettimer = timer({ timeout = 5 })    
 vpnwidgettimer:connect_signal("timeout",    
   function()    
     status = io.popen("ls /var/run | grep 'openvpn'", "r")
     if status:read() == nil then
-        vpnwidget:set_markup(" <span color='#FF0000'>VPN: OFF</span> ")    
+        vpnwidget:set_markup(" | <span color='#FF0000'>VPN: OFF</span> ")    
     else
-        vpnwidget:set_markup(" <span color='#00FF00'>VPN: ON</span> ")
+        vpnwidget:set_markup(" | <span color='#00FF00'>VPN: ON</span> ")
     end
     status:close()    
   end    
@@ -267,7 +289,9 @@ for s = 1, screen.count() do
     if s == 1 then right_layout:add(wibox.widget.systray()) end
     
     right_layout:add(mpdwidget)
+    right_layout:add(spotify_widget)
     right_layout:add(vpnwidget)
+    right_layout:add(batterywidget)
     right_layout:add(mytextclock)
     right_layout:add(mylayoutbox[s])
     -- Now bring it all together (with the tasklist in the middle)
@@ -329,8 +353,8 @@ globalkeys = awful.util.table.join(
             end
         end),
 
-	awful.key({ }, "Print",  function () awful.util.spawn_with_shell("scrot -e 'mv $f ~/Desktop/ 2>/dev/null && sleep 1 && sxiv ~/Desktop/$f'") end),    
-    awful.key({ modkey,           }, "Print", function () awful.util.spawn_with_shell("sleep 0.5 && scrot -q 100 -s -e 'mv $f ~/Desktop/'") end),
+	awful.key({ }, "Print",  function () awful.util.spawn_with_shell("scrot -e 'mv $f ~/pics/ 2>/dev/null && sleep 1 && sxiv ~/pics/$f'") end),    
+    awful.key({ modkey,           }, "Print", function () awful.util.spawn_with_shell("sleep 0.5 && scrot -q 100 -s -e 'mv $f ~/pics/'") end),
 
 
 
