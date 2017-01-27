@@ -2,7 +2,7 @@ local wibox = require("wibox")
 
 --- User Widgets
 batterywidget = wibox.widget.textbox()
-batterywidget:set_text(" | Battery | ")
+batterywidget:set_text("|")
 batterywidgettimer = timer({ timeout = 5 })
 batterywidgettimer:connect_signal("timeout",
   function()

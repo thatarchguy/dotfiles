@@ -77,5 +77,7 @@ source ~/.bash_prompt
 PATH=$PATH:$HOME/.gem/ruby/2.2.0/bin/
 EDITOR=vim
 
+complete -cf sudo
+
 # added by travis gem
 [ -f /home/nuke/.travis/travis.sh ] && source /home/nuke/.travis/travis.sh
