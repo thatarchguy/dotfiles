@@ -4,6 +4,7 @@
 
 export TERM=xterm-256color
 export BROWSER="chromium"
+export EDITOR="vim"
 
 # If not running interactively, don't do anything
 [[ $- != *i* ]] && return
@@ -24,8 +25,9 @@ fi
 #    xterm-color) color_prompt=yes;;
 #esac
 
-HISTSIZE=20000
-HISTFILESIZE=3000
+HISTSIZE=200000
+HISTFILESIZE=30000
+shopt -s histappend
 
 txtblk='\e[0;30m' # Black - Regular
 txtred='\e[0;31m' # Red
@@ -74,10 +76,20 @@ source ~/.bash_prompt
 
 #[ -n "$XTERM_VERSION" ] && transset-df -a >/dev/null
 
-PATH=$PATH:$HOME/.gem/ruby/2.2.0/bin/
+PATH=$PATH:$HOME/.gem/ruby/2.4.0/bin/
 EDITOR=vim
 
 complete -cf sudo
 
 # added by travis gem
 [ -f /home/nuke/.travis/travis.sh ] && source /home/nuke/.travis/travis.sh
+
+PATH="/home/nuke/perl5/bin${PATH:+:${PATH}}"; export PATH;
+PERL5LIB="/home/nuke/perl5/lib/perl5${PERL5LIB:+:${PERL5LIB}}"; export PERL5LIB;
+PERL_LOCAL_LIB_ROOT="/home/nuke/perl5${PERL_LOCAL_LIB_ROOT:+:${PERL_LOCAL_LIB_ROOT}}"; export PERL_LOCAL_LIB_ROOT;
+PERL_MB_OPT="--install_base \"/home/nuke/perl5\""; export PERL_MB_OPT;
+PERL_MM_OPT="INSTALL_BASE=/home/nuke/perl5"; export PERL_MM_OPT;
+
+
+export GOPATH=$HOME/.go
+export PATH=$PATH:/$HOME/.go/bin

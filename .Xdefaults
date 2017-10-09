@@ -6,7 +6,7 @@
 xterm*faceName: Liberation Mono:size=8:antialias=true
 !xterm*font: 7x13
 
-!xterm*faceName:Inconsolata:style=Regular:size=8
+!xterm*faceName:Inconsolata:style=Regular:size=10
 
 
 !black
@@ -37,23 +37,27 @@ xterm*faceName: Liberation Mono:size=8:antialias=true
 *color15:    #dddddd
 
 
-URxvt*geometry:         112x22  
-URxvt*font:				xft:Liberation Mono:size=8:antialias=true
-!URxvt*font:            xft:Inconsolata:size=8
-!URxvt*font:			xft:Andale Mono:size=8:antialias=true
-URxvt*scrollBar:        false
-URxvt*scrollBar_right:        true
-URxvt*scrollColor:        #000000
-URxvt*letterSpace:      0
+URxvt*font:              xft:Liberation Mono:size=8:antialias=true
+!URxvt*font:              xft:Inconsolata:size=10:antialias=true
+!URxvt*font:			  xft:Andale Mono:size=8:antialias=true
+!URxvt*font: xft:DejaVu Sans Mono:size=8
+URxvt*letterSpace:        -1
+Xft*antialias: true
+Xft*hinting: true
 
-urxvt*transparent: false
-urxvt*shading: 30
+URxvt*scrollBar:          false
+URxvt*scrollBar_right:    true
+URxvt*scrollColor:        #000000
+urxvt.saveLines:         10000
+
+urxvt*transparent:        false
+urxvt*shading:            30
 URxvt*colorBD:            #ffffff
 URxvt*cursorColor:        #ffffff
 URxvt*cursorColor2:       #ffffff
 
 urxvt*perl-lib:    /usr/lib/urxvt/perl/
-URxvt.perl-ext-common: default,matcher
+URxvt.perl-ext-common: default,matcher,resize-font
 URxvt.url-launcher: chromium
 URxvt.matcher.button: 1
 URxvt.colorUL: #4682B4
