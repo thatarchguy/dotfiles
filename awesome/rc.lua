@@ -228,6 +228,7 @@ awful.screen.connect_for_each_screen(function(s)
             wibox.widget.systray(),
             spotify_widget,
 			vpnwidget,
+			tunnelwidget,
             batterywidget,
             mytextclock,
             s.mylayoutbox,

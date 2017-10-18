@@ -42,3 +42,19 @@ vpnwidgettimer:connect_signal("timeout",
 vpnwidgettimer:start()
 
 
+tunnelwidget = wibox.widget.textbox()
+tunnelwidget:set_text(" | Tunnel: N/A ")
+tunnelwidgettimer = timer({ timeout = 5 })
+tunnelwidgettimer:connect_signal("timeout",
+  function()
+    status = io.popen("pgrep -f 'ssh -f -N'", "r")
+    if status:read() == nil then
+        tunnelwidget:set_markup(" | <span color='#FF0000'>Tunnel: OFF</span> ")
+    else
+        tunnelwidget:set_markup(" | <span color='#00FF00'>Tunnel: ON</span> ")
+    end
+    status:close()
+  end
+)
+tunnelwidgettimer:start()
+
