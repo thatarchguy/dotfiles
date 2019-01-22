@@ -61,3 +61,7 @@ tmpfile=$( mktemp -t transferXXX ); if tty -s; then basefile=$(basename "$1" | s
 hgrep() {
     history | grep "$1"
 }
+
+authy() {
+    chrome --profile-directory=Default --app-id=gaedmjdfmmahhbjefcbgaolhhanlaolb
+}

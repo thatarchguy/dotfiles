@@ -24,6 +24,16 @@ spotify_timer:connect_signal("timeout",
 )
 spotify_timer:start()
 
+mpd_widget = wibox.widget.textbox()
+mpd_timer = timer ({timeout = 5})
+mpd_timer:connect_signal("timeout",
+  function()
+    current = io.popen("ncmpcpp --current-song", "r")
+    mpd_widget:set_text(" | " .. current:read())
+    current:close()
+  end
+)
+mpd_timer:start()
 
 vpnwidget = wibox.widget.textbox()
 vpnwidget:set_text(" | VPN: N/A ")

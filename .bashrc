@@ -3,7 +3,7 @@
 #
 
 export TERM=xterm-256color
-export BROWSER="chromium"
+export BROWSER="firefox"
 export EDITOR="vim"
 
 # If not running interactively, don't do anything
@@ -91,3 +91,4 @@ complete -cf sudo
 
 export GOPATH=$HOME/.go
 export PATH=$PATH:/$HOME/.go/bin
+
