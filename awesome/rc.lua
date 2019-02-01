@@ -50,6 +50,7 @@ firefox = "firefox"
 thunar = "thunar"
 vifm = "vifm"
 suspend = "systemctl suspend"
+awful.spawn.with_shell("~/.config/awesome/autorun.sh")
 
 -- Default modkey.
 -- Usually, Mod4 is the key with a logo between Control and Alt.
