@@ -25,6 +25,15 @@ if [ -f ~/.git-completion.bash ]; then
   . ~/.git-completion.bash
 fi
 
+
+if [ -f /usr/share/fzf/key-bindings.bash ]; then
+  . /usr/share/fzf/key-bindings.bash
+fi
+
+if [ -f /usr/share/fzf/completion.bash ]; then
+  . /usr/share/fzf/completion.bash
+fi
+
 #case "$TERM" in
 #    xterm-color) color_prompt=yes;;
 #esac
@@ -90,5 +99,6 @@ complete -cf sudo
 [ -f /home/nuke/.travis/travis.sh ] && source /home/nuke/.travis/travis.sh
 
 export GOPATH=$HOME/.go
-export PATH=$PATH:/$HOME/.go/bin
+export PATH=$PATH:/$HOME/.go/bin:/$HOME/.local/bin
+
 
