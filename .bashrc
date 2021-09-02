@@ -2,7 +2,8 @@
 # ~/.bashrc
 #
 
-export TERM=xterm-256color
+#export TERM=xterm-256color
+export TERM=rxvt-unicode-256color
 export BROWSER="firefox"
 export EDITOR="vim"
 
@@ -101,4 +102,5 @@ complete -cf sudo
 export GOPATH=$HOME/.go
 export PATH=$PATH:/$HOME/.go/bin:/$HOME/.local/bin
 
-
+#export GDK_DPI_SCALE=1.5
+#export GDK_SCALE=1.5

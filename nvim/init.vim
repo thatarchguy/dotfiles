@@ -1,3 +1,19 @@
+
+call plug#begin('~/.config/nvim/plugged')
+
+Plug 'ryanoasis/vim-devicons'
+Plug 'hashivim/vim-terraform'
+Plug 'fatih/vim-go'
+Plug 'vim-airline/vim-airline'
+Plug 'gabrielelana/vim-markdown'
+Plug 'Xuyuanp/nerdtree-git-plugin'
+Plug 'preservim/nerdtree'
+Plug 'neoclide/coc.nvim', {'branch': 'release'}
+
+call plug#end()
+
+colorscheme peachpuff
+
 set nocompatible          " get rid of Vi compatibility mode. SET FIRST!
 syntax on
 set t_Co=256              " enable 256-color mode.

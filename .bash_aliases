@@ -4,6 +4,8 @@ alias cpz='rsync -aP'
 alias ls='ls --color=auto'
 alias ll='ls -la | lolcat'
 
+alias vim='nvim'
+
 alias mntdisas="sshfs -o idmap=user,follow_symlinks disasterbate: /srv/disas"
 alias umntdisas="fusermount -u /srv/disas"
 alias vpndisas="sudo systemctl start openvpn@arch"

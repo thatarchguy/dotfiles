@@ -1,4 +1,4 @@
-install: install-bash install-vim -install-tmux \
+install: install-bash install-vim install-nvim install-tmux \
 		 install-colors install-terminal install-awesome \
 		 install-asound install-ncmpcpp install-git
 
@@ -14,6 +14,10 @@ install-vim:
 	rm -rf ~/.vimrc
 	ln -s `pwd`/.vimrc ~/.vimrc
 	ln -s ~/.vim/vimrc ~/.vimrc
+
+install-nvim:
+	rm -rf ~/.config/nvim
+	ln -s `pwd`/nvim ~/.config/nvim
 
 install-tmux:
 	rm -f ~/.tmux.conf
