@@ -360,7 +360,7 @@ globalkeys = gears.table.join(
 
     -- User Made
     awful.key({ }, "Print",  function () awful.spawn.with_shell("scrot -e 'mv $f ~/pics/ 2>/dev/null && sleep 1 && sxiv ~/pics/$f'") end),
-    awful.key({ modkey,           }, "Print", function () awful.spawn.with_shell("sleep 0.5 && scrot -q 100 -s -e 'mv $f ~/pics/'") end),
+    awful.key({ modkey,           }, "Print", function () awful.spawn.with_shell("sleep 0.5 && maim --select ~/pics/$(date '+%F-%H%M%S.png')") end),
     awful.key({ modkey, "Control"     }, "l", function () awful.spawn("systemctl suspend") end),
     awful.key({ modkey, "Mod1"    }, "l", function () awful.spawn("i3lock-fancy") end),
     awful.key({ modkey,       }, "b", function () awful.spawn("urxvt -e ncmpcpp") end),
@@ -529,6 +529,11 @@ awful.rules.rules = {
           "pop-up",       -- e.g. Google Chrome's (detached) Developer Tools.
         }
       }, properties = { floating = true }},
+   
+    -- Force Authy Desktop to stop floating
+    { rule_any = { name = { "Authy Desktop"}
+      }, properties = { floating = false }
+    },
 
     -- Add titlebars to normal clients and dialogs
     { rule_any = {type = { "normal", "dialog" }

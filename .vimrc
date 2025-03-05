@@ -18,6 +18,7 @@ set matchpairs+=<:>
 set smarttab
 set pastetoggle=<F2>
 set number
+set mouse=                " disable mouse  
 
 
 " Theme stuff stolen from codedark theme

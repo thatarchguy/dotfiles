@@ -16,6 +16,7 @@ alias wiki="cd ~/dev/_wiki/docs/"
 alias pacin='sudo pacman -S'
 
 alias eqz='alsamixer -D equal'
+alias cat='bat --paging=never -p'
 
 bind Space:magic-space
 

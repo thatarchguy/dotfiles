@@ -5,7 +5,7 @@
 #export TERM=xterm-256color
 export TERM=rxvt-unicode-256color
 export BROWSER="firefox"
-export EDITOR="vim"
+export EDITOR="nvim"
 
 # If not running interactively, don't do anything
 [[ $- != *i* ]] && return
@@ -39,8 +39,8 @@ fi
 #    xterm-color) color_prompt=yes;;
 #esac
 
-HISTSIZE=200000
-HISTFILESIZE=30000
+HISTSIZE=2000000
+HISTFILESIZE=300000
 HISTFILE=~/.bash_mystery
 shopt -s histappend
 
@@ -91,16 +91,15 @@ source ~/.bash_prompt
 
 #[ -n "$XTERM_VERSION" ] && transset-df -a >/dev/null
 
-PATH=$PATH:$HOME/.gem/ruby/2.5.0/bin/
-EDITOR=vim
-
 complete -cf sudo
 
 # added by travis gem
 [ -f /home/nuke/.travis/travis.sh ] && source /home/nuke/.travis/travis.sh
 
+export PATH="${PATH}:${HOME}/.krew/bin"
 export GOPATH=$HOME/.go
 export PATH=$PATH:/$HOME/.go/bin:/$HOME/.local/bin
 
 #export GDK_DPI_SCALE=1.5
 #export GDK_SCALE=1.5
+[ -f /opt/miniconda3/etc/profile.d/conda.sh ] && source /opt/miniconda3/etc/profile.d/conda.sh
