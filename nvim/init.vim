@@ -1,4 +1,3 @@
-
 call plug#begin('~/.config/nvim/plugged')
 
 Plug 'ryanoasis/vim-devicons'
@@ -8,11 +7,13 @@ Plug 'vim-airline/vim-airline'
 Plug 'gabrielelana/vim-markdown'
 Plug 'Xuyuanp/nerdtree-git-plugin'
 Plug 'preservim/nerdtree'
+Plug 'tomasiser/vim-code-dark'
 Plug 'neoclide/coc.nvim', {'branch': 'release'}
+
 
 call plug#end()
 
-colorscheme peachpuff
+colorscheme codedark
 
 set nocompatible          " get rid of Vi compatibility mode. SET FIRST!
 syntax on
@@ -33,7 +34,8 @@ set expandtab
 set matchpairs+=<:>
 set smarttab
 set pastetoggle=<F2>
-set number
+set nonumber
+set mouse=                " disable mouse
 
 
 " Theme stuff stolen from codedark theme
@@ -84,6 +86,9 @@ inoremap <silent><expr> <TAB>
       \ coc#refresh()
 inoremap <expr><S-TAB> pumvisible() ? "\<C-p>" : "\<C-h>"
 
+inoremap <expr> <Tab> pumvisible() ? "\<C-n>" : "\<Tab>"
+inoremap <expr> <S-Tab> pumvisible() ? "\<C-p>" : "\<S-Tab>"
+
 function! s:check_back_space() abort
   let col = col('.') - 1
   return !col || getline('.')[col - 1]  =~# '\s'
@@ -126,3 +131,4 @@ nmap <leader>f  <Plug>(coc-format-selected)
 
 " Add `:Format` command to format current buffer.
 command! -nargs=0 Format :call CocAction('format')
+
